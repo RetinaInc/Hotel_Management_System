@@ -1,0 +1,51 @@
+COMP9321 Semester 1, 2014 Assignment 2: Hotel Management System
+
+Aims
+
+This assignment aims to give students hands-on experience in designing and implementing a complex Web application interfacing with a database. The objective of this assignment is to construct a web-based hotel management application using JDBC, Servlets and JSP at the minimum.
+
+Description
+
+Travel websites have provided customers with the tools to organise their own schedules as they see fit. One of the key elements of any travel plan is the accommodation arrangment. We consider the case of a hotel chain which has hotels in Sydney, Brisbane, Melbourne, Adelaide and Hobart (at least one in each city). Your task is to design a web application that enables consumers to book rooms in a hotel of their choice, and for the owners to manage room availability and occupancy across all hotels in the chain.
+
+Details
+
+Each hotel in the chain offers the following types of rooms (one bed corresponds to one person) with the respective off-peak rates:
+
+Single Room (with 1 single bed) - $70 per night - 15 rooms
+Twin Bed (2 single beds) - $ 120 per night - 10 rooms
+Queen (1 double bed) - $120 per night - 10 rooms
+Executive (1 double bed, more facilities than Queen) - $180 per night - 5 rooms
+Suite (2 double beds, most luxurious) - $300 per night - 2 rooms
+One extra bed is allowed in all rooms except for Single, at an extra charge of $35. A room can either be occupied, under maintenance or available.
+A year is also divided into peak and off-peak periods. Peak periods are Dec. 15th - Feb 15th, March 25th - April 14th, July 1st - July 20th and Sept. 20th - Oct 10th. All other dates are off-peak. Rates for the rooms are 40% higher for peak period than off-peak periods.
+
+You can decide how many rooms of each type you can have in each hotel but all the types should be represented.
+
+Usage Requirements
+
+There are two types of users of the system: consumers and hotel managers.
+
+Consumer
+
+The welcome page lists information about the hotel chain and has a search field with different options. The consumer selects a check-in date and a check-out date, a city, the number of rooms in the booking, and the maximum price per room per night she's willing to pay.
+
+The consumer is presented with a list of rooms and the number of these that are available for the specified dates and within the requested budget. If there are no available rooms that meet the consumer's criteria, then she is presented with an appropriate message and is asked to repeat their search with different values.
+
+The consumer selects one of the options, adds an extra bed if required and confirms the selection. Then, if the rooms are available, he/she is taken to the checkout page where payment details have to be entered.
+Once the payment is done, the system generates a unique page with a system-generated URL containing the consumer's booking details and a unique PIN (Personal Identification Number), and sends it as an email to the customer's email id.
+The consumer can visit the page until 48 hours before the start date of his booking through a unique system-generated URL, enter his PIN and check his/her booking details. She can modify the reservation to ADD a new room to her booking (Note: removing a room from the booking is NOT allowed). If she adds a room and no such room is available, the consumer is informed of it and is given the choice to continue with the existing booking or delete the entire booking altogether. If the room is available, then the room is added to the booking, the price recalculated and the consumer asked to confirm if she wants to proceed with the new booking and new price. If she declines, then the existing booking is maintained.
+Reception Manager
+
+When the customer shows up to check-in at the hotel, the Reception/Hotel Manager can assign the customer to the room(s) that match(es) her booking. This happens in the following manner:
+The manager account is already present in the system and is entered via a different URL. The account is password-protected.
+After authentication, the manager is presented with a page that enables him to view all the rooms occupied and bookings made by consumers.
+The manager can assign a room to a booking. For this function, he selects a booking, views the appropriate rooms available (e.g. if a booking is for 2 twin rooms, then all the twin rooms available would show up), and assigns rooms to the booking as per the number specified. You could imagine this happens when the customer shows up to check-in at the hotel.
+When a customer checks out, the manager returns the occupied room to the available list.
+Hotel Owner
+
+The owner of the hotel chain is able to have a view of all the hotels that are part of the chain. The functionalities provided are as follows:
+
+The owner account is already present in the system and is entered via a different URL.
+When the owner logs in, she is able to view the occupancy of each hotel in the chain. Occupancy is number of rooms occupied and number of rooms available. This must be updated in real time.
+The owner can set a discount fare for a specific class of rooms in a specific hotel for a set time period. For example, the owner can reduce the price of twin rooms in the Sydney hotel by 50 % for two weeks beginning 13th May. The owner is asked to confirm the new fare. This change must become immediately available. The new fare is available to all successive bookings. However, bookings confirmed prior to applying the discount are unchanged.
